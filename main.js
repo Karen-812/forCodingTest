@@ -38,22 +38,18 @@ const rl = readline.createInterface({
 
 // 標準入力から1行読み取る
 rl.on("line", (input) => {
-  const output = input;
-  // 出力文字列をコンソールに表示
-  console.log(output);
   // 標準入力を終了
   Main(input);
   rl.close();
 }).setMaxListeners(1);
 
 function Main(input) {
-    let inputString = parseInt(input, 10);
-    let inputNumber = inputString.codePointAt(0);
-    for(i=inputNumber; i<91; i++){
-    console.log(String.fromCodePoint(i));
+  // let inputString = parseInt(input, 10);←これが邪魔してた
+  let output = ' ';
+  let inputNumber = input.codePointAt(0);
+  for(i=inputNumber; i<91; i++){
+  output += String.fromCodePoint(i);
+  }
+  // 出力文字列をコンソールに表示
+  console.log(output);
 }
-}
-
-
-// Main(rl.input);
-// Main(require("fs").readFileSync("/dev/stdin", "utf8"));
